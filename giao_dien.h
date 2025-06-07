@@ -92,7 +92,7 @@ void khungngoai()
     gotoxy(0, 29); printf("%c", 200);
     gotoxy(80, 29); printf("%c", 188);
     gotoxy(34, 0); TextColor(160); printf(" BAI TAP LON ");
-    gotoxy(2, 2); TextColor(31); printf("%c CHU DE 4: GIAI GAN DUNG PHUONG TRINH F(X) = 0 BANG PHUONG PHAP TIEP TUYEN %c", 175, 174);
+    gotoxy(2, 2); TextColor(31); printf("%c CHU DE 5: GIAI GAN DUNG PHUONG TRINH F(X) = 0 BANG PHUONG PHAP TIEP TUYEN %c", 175, 174);
 }
 
 // ham ve giao dien ben trong khung 
@@ -141,7 +141,7 @@ void khungketqua()
     gotoxy(82, 29); printf("%c", 200);
     gotoxy(118, 29); printf("%c", 188);
     gotoxy(96, 0); TextColor(160); printf(" Ket qua ");
-    gotoxy(100, 28); TextColor(120); printf("Made by Trieu Thi ThoaThoa");
+    gotoxy(100, 28); TextColor(120); printf("Made by Trieu Thi Thoa");
 }
 
 // ham in ra huong dan
