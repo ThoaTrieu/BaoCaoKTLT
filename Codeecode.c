@@ -4,7 +4,6 @@
 #include <math.h>
 #include <stdbool.h>
 #include "giao_dien.h" 	
-#include <graphics.h>
 // cac bien toan cuc
 const char* option[] =
 {	
@@ -156,14 +155,28 @@ double f1(double x){
 double f2(double x){
     return fabs(ddf(x));
 }
+// Ve do thi ham so 
 
-// ham tinh sai so
-double Compute_Error(double x, double x_old, double m1, double M2, int CT_SaiSo){
-    if (CT_SaiSo == 1)
-        return fabs(f(x))/ m1;
-    else if (CT_SaiSo == 2)
-        return M2 * pow((x - x_old), 2)/ (2 * m1);
+void plot_function(double start, double end) {
+    const char* datafile = "data_function.txt";
+    write_data_file(datafile, start, end, 0.01);
+
+    FILE* gp = popen("gnuplot -persist", "w");
+    if (gp == NULL) {
+        printf("Khong the khoi dong gnuplot.\n");
+        return;
+    }
+
+    fprintf(gp, "set title 'Do thi ham so f(x)'\n");
+    fprintf(gp, "set xlabel 'x'\n");
+    fprintf(gp, "set ylabel 'f(x)'\n");
+    fprintf(gp, "set grid\n");
+    fprintf(gp, "plot '%s' with lines title 'f(x)'\n", datafile);
+    fflush(gp);
+    // Đợi gnuplot vẽ xong rồi mới đóng
+    pclose(gp);
 }
+
 
 // ham tim diem fourier
 bool Fourier_Point(double a){
@@ -199,8 +212,8 @@ double Find_Cauchy_Radius() {
 int Find_Extrema_Points(double extrema[], double R, double h) {
     int count = 0;
     for (double x = -R; x < R; x += h) {
-        double f1 = Derivative(x);
-        double f2 = Derivative(x + h);
+        double f1 = f(x);
+        double f2 = f(x + h);
         if (f1 * f2 < 0 || fabs(f1) < EPSILON) {
             extrema[count++] = (x + x + h) / 2;
         }
@@ -218,7 +231,7 @@ int Find_Isolation_Intervals(double intervals[][2], double extrema[], int extrem
     int count = 0;
     for (int i = 0; i < extremaCount + 1; i++) {
         double a = points[i], b = points[i + 1];
-        double fa = Evaluate(a), fb = Evaluate(b);
+        double fa = f(a), fb = f(b);
         if (fa * fb < 0) {
             intervals[count][0] = a;
             intervals[count++][1] = b;
@@ -243,7 +256,7 @@ void Select_Interval(double intervals[][2], int count, double *a, double *b) {
 void Bisection_Interval(double *a, double *b) {
     while (fabs(*a - *b) > 0.5) {
         double mid = (*a + *b) / 2;
-        if (Evaluate(*a) * Evaluate(mid) < 0) *b = mid;
+        if (f(*a) * f(mid) < 0) *b = mid;
         else *a = mid;
     }
 }
@@ -252,27 +265,27 @@ void Bisection_Interval(double *a, double *b) {
 int Check_Input(double a, double b) {
     if (a == b) return 0;
     if (a > b) return 0;
-    if (Evaluate(a) * Evaluate(b) > 0) return 0;
+    if (f(a) * f(b) > 0) return 0;
     return 1;
 }
 
 // Ham tim diem Fourier
 int Fourier_Point(double x) {
-    return (Evaluate(x) * SecondDerivative(x) > 0);
+    return (f(x) * ddf(x) > 0);
 }
 
 // Tinh X_n từ X_(n-1)
 int Fourier_Point(double x) {
-    return (Evaluate(x) * SecondDerivative(x) > 0);
+    return (f(x) * ddf(x) > 0);
 }
 
 // Ham tim min |f'(x)| trong [a,b]
 double Min_Value(double a, double b) {
     double alpha = (b - a) / 10000;
-    double minVal = fabs(Derivative(a));
+    double minVal = fabs(df(a));
     for (int i = 1; i <= 10000; i++) {
         double x = a + i * alpha;
-        double fx = fabs(Derivative(x));
+        double fx = fabs(df(x));
         if (fx < minVal) minVal = fx;
     }
     return minVal;
@@ -281,10 +294,10 @@ double Min_Value(double a, double b) {
 // Ham tim max |f''(x)| trong [a,b]
 double Max_Value(double a, double b) {
     double alpha = (b - a) / 10000;
-    double maxVal = fabs(SecondDerivative(a));
+    double maxVal = fabs(ddf(a));
     for (int i = 1; i <= 10000; i++) {
         double x = a + i * alpha;
-        double fx = fabs(SecondDerivative(x));
+        double fx = fabs(ddf(x));
         if (fx > maxVal) maxVal = fx;
     }
     return maxVal;
@@ -293,7 +306,7 @@ double Max_Value(double a, double b) {
 
 // Tinh sai so 
 void Compute_Error(double xn, double xn1, double m1, double M2, double *delta1, double *delta2) {
-    *delta1 = fabs(Evaluate(xn)) / m1;
+    *delta1 = fabs(f(xn)) / m1;
     *delta2 = (M2 / (2 * m1)) * (xn - xn1) * (xn - xn1);
 }
 
