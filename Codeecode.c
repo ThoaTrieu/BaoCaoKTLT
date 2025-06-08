@@ -35,7 +35,7 @@ double distance_value[N];
 
 // cac ham trong chuong trinh chinh
 void input();
-void output();  // Added missing prototype
+void output();  
 void print_poly_to_file(FILE *file);
 bool check_input(double a, double b);
 void domain_solution();
@@ -51,7 +51,7 @@ bool fourier_point(double a);
 double sai_so(double x, double x_old, double m1, double M2, int ct_saiso);
 void chucnang_1();
 void chucnang_2();
-void chucnang_3();  // Fixed function name
+void chucnang_3();  
 void chucnang_4();
 void chucnang_5();
 void menu();
@@ -285,7 +285,7 @@ void domain_solution()
         }
         for (int i = 1; i <= degree; i++) {
             if (temp[i] < 0) {
-                if (fabs(temp[i]) > max) max = fabs(temp[i]);  // Fixed: use fabs() instead of abs()
+                if (fabs(temp[i]) > max) max = fabs(temp[i]);  
             }
         }
         if (max == 0) {
@@ -383,7 +383,7 @@ void chucnang_1()
                 }
                 x1 = x0 + sign * eta * temp0;
                 x0 = x1;
-                if (fabs(df(x1)) < 1e-4) {  // Fixed: use fabs() instead of abs()
+                if (fabs(df(x1)) < 1e-4) {  
                     survey_value[k] = x1;
                     k++; 
                     break;
@@ -528,6 +528,8 @@ void write_gnuplot_script(const char *script_name, const char *data_file, double
     FILE *file = fopen(script_name, "w");
     fprintf(file, "set title 'Do thi ham so f(x)'\n");
     fprintf(file, "set xlabel 'x'\n");
+
+    
     fprintf(file, "set ylabel 'f(x)'\n");
     fprintf(file, "set grid\n");
     fprintf(file, "plot '%s' using 1:2 with lines title 'f(x)'\n", data_file);
