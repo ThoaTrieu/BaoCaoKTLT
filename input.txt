@@ -1,0 +1,14 @@
+
+Nguoi dung nhap vao: 
+- Bac cua da thuc: 5.
+- So chu so phan thap phan muon hien thi la: 6.
+
+- Cac he so cua da thuc:
+ +> a0 = 1.000000
+ +> a1 = 0.000000
+ +> a2 = -3.000000
+ +> a3 = 0.000000
+ +> a4 = 1.000000
+ +> a5 = 1.000000
+
+Phuong trinh: F(x) = 1.000000x^5 +0.000000x^4 -3.000000x^3 +0.000000x^2 +1.000000x^1 +1.000000x^0 = 0

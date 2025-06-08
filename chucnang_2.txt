@@ -1,0 +1,32 @@
+
+Chuc nang 2: Thu hep khoang phan ly nghiem (a,b) thoa man |a-b| <= 0.5 bang cach su dung phuong phap chia doi
+
+
+Phuong trinh: F(x) = 1.000000x^5 +0.000000x^4 -3.000000x^3 +0.000000x^2 +1.000000x^1 +1.000000x^0 = 0
+
+
+INPUT: cac KPL nghiem tim duoc o chuc nang 1, lua chon cua nguoi dung.
+
+OUTPUT: KPL nghiem duoc rut gon thoa man |a - b| <= 0.5.
+Khoang phan ly nguoi dung chon: 2
+
+Khoang phan ly ban dau la:
+- Can duoi a: 0.344910
+- Can tren b: 1.296539
+
+Su dung phuong phap chia doi de thu hep khoang cach ly:
+
+Lan lap thu 1
+- Can duoi a: 0.820724
+- Can tren b: 1.296539
+
+
+Khoang phan ly nghiem sau khi rut gon:
+- Can duoi a: 0.820724
+- Can tren b: 1.296539
+
+|a - b| = 0.475814 <= 0.5 thoa man de bai.
+
+So lan lap chia doi: 1
+
+Ket thuc.

@@ -1,0 +1,22 @@
+
+Chuc nang 1: Tim cac khoang phan ly nghiem cua phuong trinh.
+
+INPUT: Bac cua phuong trinh, cac he so cua phuong trinh f(x) = 0.
+OUTPUT: Cac khoang phan ly nghiem cua phuong trinh.
+
+Phuong trinh: F(x) = 1.000000x^5 +0.000000x^4 -3.000000x^3 +0.000000x^2 +1.000000x^1 +1.000000x^0 = 0
+
+
+Khoang phan ly nghiem thu 1
+- Can duoi: -2.732051
+- Can tren: -1.296547
+
+Khoang phan ly nghiem thu 2
+- Can duoi: 0.344910
+- Can tren: 1.296539
+
+Khoang phan ly nghiem thu 3
+- Can duoi: 1.296539
+- Can tren: 2.732051
+
+Ket thuc.

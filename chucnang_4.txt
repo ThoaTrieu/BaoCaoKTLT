@@ -1,0 +1,47 @@
+
+Chuc nang 4: Tim nghiem gan dung voi so lan lap cho truoc trong khoang (a, b) va danh gia sai so epsilon theo hai cong thuc sai so.
+
+Phuong trinh: F(x) = 1.000000x^5 +0.000000x^4 -3.000000x^3 +0.000000x^2 +1.000000x^1 +1.000000x^0 = 0
+
+INPUT: KPL nghiem (a,b), so lan lap.
+OUTPUT: Nghiem gan dung Xn, sai so epsilon.
+
+Khoang phan ly nghiem (a,b):
+- Can duoi a: -2.100000
+- Can tren b: -1.650000
+
+So lan lap nguoi dung nhap la: 4
+
+- Gia tri nho nhat cua |f'(x)| la: m1 = 13.560238
+- Gia tri lon nhat cua |f''(x)| la: M2 = 147.526436
+
+Diem Fourier la: x0 = -2.100000
+
+Lan lap thu 1: 
+Nghiem xap xi x1 = -1.858191
+Sai so muc tieu             = 0.27756800257997971000
+Sai so hai xap xi lien tiep = 0.31806491253033081000
+
+Lan lap thu 2: 
+Nghiem xap xi x2 = -1.730757
+Sai so muc tieu             = 0.05217674830447570400
+Sai so hai xap xi lien tiep = 0.08833777994419657300
+
+Lan lap thu 3: 
+Nghiem xap xi x3 = -1.693333
+Sai so muc tieu             = 0.00364290018915602300
+Sai so hai xap xi lien tiep = 0.00761835432511500600
+
+Lan lap thu 4: 
+Nghiem xap xi x4 = -1.690303
+Sai so muc tieu             = 0.00002250343860477796
+Sai so hai xap xi lien tiep = 0.00004994277098634467
+
+Danh gia sai so cua hai cong thuc:
+- Uu diem: Toc do hoi tu cao, ket qua co do chinh xac cao.
+- Nhuoc diem: Dieu kien lua chon x0 ban dau kha chat.
+- Cong thuc sai so 1 co sai so nho hon so voi cong thuc sai so 2 o nhung lan lap dau. 
+
+Ghi chu: Vi phuong phap tiep tuyen hoi tu nhanh va co sai so rat nho gan 0 nen sai so em se de nhieu chu so phan thap phan hon.
+
+Ket thuc.
